@@ -20,6 +20,7 @@ ClaudeCodeWorkspace/
 shared/
 exports/
 imports/
+apple-container-framework/
 
 # Container runtime files
 *.vmstate
