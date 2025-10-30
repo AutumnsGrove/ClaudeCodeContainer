@@ -57,3 +57,7 @@ build/
 tmp/
 temp/
 *.tmp
+
+# Build context - DO NOT IGNORE
+# container-config/ is needed for BaseProject integration
+!container-config/

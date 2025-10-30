@@ -1,8 +1,8 @@
 # ClaudeCodeContainer
 
-A production-ready, containerized development environment for Claude Code. Provides secure isolation, pre-configured tooling, and consistent cross-platform development experience using Docker.
+A production-ready, containerized development environment for Claude Code. Provides secure isolation, pre-configured tooling, consistent cross-platform development experience, and integrated BaseProject workflows using Docker.
 
-**Status:** Production Ready v1.0.0
+**Status:** Production Ready v1.0.1
 
 > **Historical Note:** Early research explored Apple's container framework for native macOS virtualization. That work is archived in `research/archive/`.
 
@@ -15,6 +15,8 @@ A production-ready, containerized development environment for Claude Code. Provi
 - **Cross-platform**: Runs consistently on macOS, Linux, and Windows
 - **Production Security**: Non-root user, no privilege escalation, isolated file access
 - **Development Ready**: Claude Code CLI pre-installed with MCP server support
+- **BaseProject Integration**: 18+ workflow guides, best practices, and project templates
+- **House Agents**: Context-saving specialized agents (house-research, house-git, house-bash, house-coder)
 
 ## Quick Start
 
@@ -87,6 +89,7 @@ uv add package-name             # Add dependency
 ### Getting Started
 - [Quick Start Guide](docs/QUICK_START.md) - Detailed setup walkthrough
 - [Docker Setup Guide](docs/DOCKER_SETUP.md) - Comprehensive Docker configuration
+- [BaseProject Integration](docs/BASEPROJECT.md) - Workflow guides and house agents
 - [Getting Started](docs/GETTING_STARTED.md) - Development workflow basics
 
 ### Configuration

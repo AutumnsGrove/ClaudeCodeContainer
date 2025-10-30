@@ -104,7 +104,12 @@ ENV TERM=xterm-256color \
     USER=claude \
     HOME=/home/claude
 
-# Switch to non-root user
+# Copy BaseProject and house-agents configuration files
+# These will be installed on first container run
+USER root
+COPY container-config /opt/claude-config
+RUN chmod +x /opt/claude-config/first-run.sh && \
+    chown -R claude:claude /opt/claude-config
 USER claude
 
 # Create user-level directories
@@ -119,11 +124,11 @@ WORKDIR /workspace
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
     CMD python --version && node --version && git --version || exit 1
 
-# Default command: start bash shell
-CMD ["/bin/bash"]
+# Default command: run first-run setup, then start bash shell
+CMD ["/bin/bash", "-c", "/opt/claude-config/first-run.sh && exec /bin/bash"]
 
 # Labels for metadata
 LABEL maintainer="Claude Code Container Project" \
-      description="Production-ready container environment for Claude Code" \
-      version="1.0.0" \
-      org.opencontainers.image.source="https://github.com/anthropics/anthropic-cli"
+      description="Production-ready container environment for Claude Code with BaseProject workflows" \
+      version="1.0.1" \
+      org.opencontainers.image.source="https://github.com/AutumnsGrove/ClaudeCodeContainer"

@@ -271,9 +271,17 @@ To verify the setup works correctly:
 
 ## Version History
 
+- **v1.0.1** (2025-10-30): BaseProject and House Agents Integration
+  - Integrated BaseProject workflow guides (18+ comprehensive guides)
+  - Added house-agents for context-saving operations
+  - Added house-coder agent for quick code patches
+  - First-run initialization script with welcome message
+  - Secrets template with common API keys
+  - Automatic setup of workflow documentation
+
 - **v1.0.0** (2025-10-30): Initial production-ready release
   - Ubuntu 24.04 LTS base
-  - Python 3.11 + UV
+  - Python 3.12 + UV
   - Node.js 20.x LTS
   - Claude CLI integration
   - Complete documentation
