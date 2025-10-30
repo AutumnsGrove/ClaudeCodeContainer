@@ -86,3 +86,13 @@ DerivedData/
 *.ipa
 *.dSYM.zip
 *.dSYM
+
+# Docker
+.env
+docker-compose.override.yml
+workspace/
+*.tar.gz
+
+# Docker volumes and data
+home-backup.tar.gz
+workspace-backup.tar.gz

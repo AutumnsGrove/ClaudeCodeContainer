@@ -1,7 +1,18 @@
 # Research Summary: macOS Native Containerization
 
+**IMPORTANT UPDATE (October 30, 2025):**
+This research has been superseded by a project pivot to Docker Desktop. The Apple Container Framework research has been archived but preserved for reference and future evaluation. See [archived research](./archive/apple-framework/README.md) for complete details on the pivot decision.
+
+**Current Implementation:** Docker Desktop
+**Archived Research Location:** `/Users/autumn/Documents/Projects/ClaudeCodeContainer/research/archive/apple-framework/`
+**Reason for Pivot:** Apple Container Framework v0.5.0 not production-ready; Docker Desktop provides stable, industry-standard solution
+
+---
+
+## Original Research Summary
+
 **Research Completed:** October 8, 2025
-**Status:** Complete
+**Status:** Complete (Archived)
 **Recommendation:** Clear path forward identified
 
 ---

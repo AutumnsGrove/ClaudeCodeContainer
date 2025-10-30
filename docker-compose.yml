@@ -1,0 +1,130 @@
+# Docker Compose configuration for Claude Code Container Environment
+# Production-ready setup with security best practices and resource limits
+
+services:
+  claude-code-container:
+    # Build from local Dockerfile
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # Build arguments for customization (optional)
+      args:
+        - CLAUDE_VERSION=0.1.13
+
+    # Container name for easy reference
+    container_name: claude-code-container
+
+    # Resource limits to prevent container from consuming all host resources
+    deploy:
+      resources:
+        limits:
+          cpus: '4.0'        # Maximum 4 CPU cores
+          memory: 8G         # Maximum 8GB RAM
+        reservations:
+          cpus: '1.0'        # Guaranteed 1 CPU core
+          memory: 1G         # Guaranteed 1GB RAM
+
+    # Volume mounts for data persistence and sharing
+    volumes:
+      # Main workspace: bidirectional sync with host
+      - ./workspace:/workspace
+
+      # Named volume for home directory persistence
+      # Preserves user settings, cache, and configuration
+      - claude-home:/home/claude
+
+      # Optional: Mount specific project directories
+      # - ~/Projects:/workspace/Projects/host-projects:ro  # Read-only host projects
+
+      # Optional: Mount SSH keys for git operations (uncomment if needed)
+      # - ~/.ssh:/home/claude/.ssh:ro
+
+      # Optional: Mount Docker socket for Docker-in-Docker (use with caution)
+      # - /var/run/docker.sock:/var/run/docker.sock
+
+    # Network configuration
+    network_mode: bridge
+
+    # Enable DNS resolution
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+
+    # Restart policy: restart unless manually stopped
+    restart: unless-stopped
+
+    # Security options
+    security_opt:
+      # Prevent privilege escalation
+      - no-new-privileges:true
+
+    # Enable interactive terminal support
+    stdin_open: true
+    tty: true
+
+    # Environment variables
+    environment:
+      # Timezone configuration
+      - TZ=UTC
+
+      # Python configuration
+      - PYTHONUNBUFFERED=1
+      - UV_SYSTEM_PYTHON=1
+
+      # Node.js configuration
+      - NODE_ENV=development
+
+      # Optional: Claude API key (set via .env file or host environment)
+      # - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+
+    # Port mappings (if needed for web servers, etc.)
+    # ports:
+    #   - "3000:3000"    # Node.js dev server
+    #   - "8000:8000"    # Python web server
+    #   - "8080:8080"    # Alternative web server
+
+    # Healthcheck configuration
+    healthcheck:
+      test: ["CMD", "python", "--version"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+    # Process and ulimit configurations
+    ulimits:
+      nofile:
+        soft: 65536
+        hard: 65536
+      nproc:
+        soft: 32768
+        hard: 32768
+
+    # Logging configuration
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+    # Optional: User namespace remapping for additional security
+    # userns_mode: "host"
+
+# Named volumes for data persistence
+volumes:
+  claude-home:
+    driver: local
+    name: claude-code-home
+    # Optional: Use a specific driver for better performance
+    # driver_opts:
+    #   type: none
+    #   o: bind
+    #   device: /path/to/persistent/storage
+
+# Optional: Custom networks for multi-container setups
+# networks:
+#   claude-network:
+#     driver: bridge
+#     ipam:
+#       config:
+#         - subnet: 172.28.0.0/16

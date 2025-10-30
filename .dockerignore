@@ -1,0 +1,59 @@
+# .dockerignore - Exclude unnecessary files from Docker build context
+# This reduces build time and image size
+
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Documentation and research (not needed in image)
+*.md
+docs/
+research/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Workspace data (mounted at runtime)
+workspace/
+
+# Build artifacts
+*.egg-info/
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+*.log
+
+# Temporary files
+tmp/
+temp/
+*.tmp
