@@ -187,10 +187,10 @@ Consider re-evaluating the Apple Container Framework when:
 
 For the current Docker-based implementation, see:
 
-- `/Users/autumn/Documents/Projects/ClaudeCodeContainer/README.md` - Main project documentation
-- `/Users/autumn/Documents/Projects/ClaudeCodeContainer/DOCKER_IMPLEMENTATION.md` - Docker architecture
-- `/Users/autumn/Documents/Projects/ClaudeCodeContainer/DOCKER_SETUP.md` - Setup instructions
-- `/Users/autumn/Documents/Projects/ClaudeCodeContainer/QUICK_START.md` - Getting started guide
+- [Main README](../../../README.md) - Main project documentation
+- [Implementation Details](../../../docs/IMPLEMENTATION.md) - Docker architecture
+- [Docker Setup Guide](../../../docs/DOCKER_SETUP.md) - Setup instructions
+- [Quick Start Guide](../../../docs/QUICK_START.md) - Getting started guide
 
 ---
 

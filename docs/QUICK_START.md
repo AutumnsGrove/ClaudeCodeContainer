@@ -159,7 +159,7 @@ sudo chown -R 1000:1000 workspace/
 
 ## Next Steps
 
-1. Read `DOCKER_SETUP.md` for detailed configuration options
+1. Read [Docker Setup Guide](DOCKER_SETUP.md) for detailed configuration options
 2. Set up your API keys in `.env` file (copy from `.env.example`)
 3. Customize resource limits in `docker-compose.yml`
 4. Add your SSH keys for Git operations

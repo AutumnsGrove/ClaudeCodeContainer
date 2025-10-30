@@ -8,7 +8,7 @@ Production-ready Docker setup for Claude Code container environment has been suc
 
 ### Core Docker Files
 
-1. **Dockerfile** (`/Users/autumn/Documents/Projects/ClaudeCodeContainer/Dockerfile`)
+1. **Dockerfile** (`./Dockerfile`)
    - Base: Ubuntu 24.04 LTS
    - Non-root user: claude (UID 1000)
    - Installed tools:
@@ -22,7 +22,7 @@ Production-ready Docker setup for Claude Code container environment has been suc
    - Security: no-new-privileges, healthcheck, non-root execution
    - Size optimized: cleanup after apt installs, multi-stage where possible
 
-2. **docker-compose.yml** (`/Users/autumn/Documents/Projects/ClaudeCodeContainer/docker-compose.yml`)
+2. **docker-compose.yml** (`./docker-compose.yml`)
    - Service: claude-code-container
    - Resource limits: 4 CPUs, 8GB RAM
    - Volumes:
@@ -35,14 +35,14 @@ Production-ready Docker setup for Claude Code container environment has been suc
    - Logging: JSON driver with rotation (10MB, 3 files)
    - Healthcheck: verifies Python installation every 30s
 
-3. **.dockerignore** (`/Users/autumn/Documents/Projects/ClaudeCodeContainer/.dockerignore`)
+3. **.dockerignore** (`./.dockerignore`)
    - Excludes unnecessary files from build context
    - Reduces build time and image size
    - Ignores: .git, docs, research, node_modules, __pycache__, workspace data
 
 ### Documentation Files
 
-4. **DOCKER_SETUP.md** - Comprehensive guide covering:
+4. **docs/DOCKER_SETUP.md** - Comprehensive guide covering:
    - Quick start instructions
    - Directory structure explanation
    - Container specifications
@@ -53,7 +53,7 @@ Production-ready Docker setup for Claude Code container environment has been suc
    - Security considerations
    - Advanced configuration
 
-5. **QUICK_START.md** - Fast-track guide for:
+5. **docs/QUICK_START.md** - Fast-track guide for:
    - 5-minute setup process
    - Daily usage commands
    - Common development tasks
@@ -62,7 +62,7 @@ Production-ready Docker setup for Claude Code container environment has been suc
 
 ### Helper Scripts
 
-All scripts are executable and located in `/Users/autumn/Documents/Projects/ClaudeCodeContainer/scripts/`:
+All scripts are executable and located in `./scripts/`:
 
 6. **start-container.sh**
    - Checks Docker availability
@@ -89,13 +89,13 @@ All scripts are executable and located in `/Users/autumn/Documents/Projects/Clau
 
 ### Configuration Files
 
-10. **.env.example** (`/Users/autumn/Documents/Projects/ClaudeCodeContainer/.env.example`)
+10. **.env.example** (`./.env.example`)
     - Template for environment variables
     - ANTHROPIC_API_KEY placeholder
     - Timezone, Python, Node.js settings
     - Git configuration overrides
 
-11. **Makefile** (`/Users/autumn/Documents/Projects/ClaudeCodeContainer/Makefile`)
+11. **Makefile** (`./Makefile`)
     - Simple command interface
     - Common operations: build, start, stop, restart, enter
     - Monitoring: logs, status
@@ -263,8 +263,8 @@ To verify the setup works correctly:
 
 ## Support and Documentation
 
-- **Docker Setup Guide**: `DOCKER_SETUP.md`
-- **Quick Start**: `QUICK_START.md`
+- **Docker Setup Guide**: [DOCKER_SETUP.md](DOCKER_SETUP.md)
+- **Quick Start**: [QUICK_START.md](QUICK_START.md)
 - **Docker Documentation**: https://docs.docker.com/
 - **Claude Documentation**: https://docs.anthropic.com/
 - **UV Documentation**: https://github.com/astral-sh/uv
