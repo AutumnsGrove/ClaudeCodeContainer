@@ -96,3 +96,4 @@ workspace/
 # Docker volumes and data
 home-backup.tar.gz
 workspace-backup.tar.gz
+.aider*
